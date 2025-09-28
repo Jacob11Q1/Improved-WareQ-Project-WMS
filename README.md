@@ -1,72 +1,77 @@
-# 📦 WareQ WMS Project
+📦 WareQ WMS – Warehouse Management System
 
-An **Inventory & Warehouse Management System (WMS)** built with **Django**, designed to manage customers, suppliers, inventory, and orders with a modern dashboard and responsive UI.
+A professional warehouse management system (WMS) built with Django and MySQL, designed to handle inventory, suppliers, customers, and orders in a simple yet powerful way.
 
----
+🚀 Features
 
-## 🚀 Features
+🔐 Authentication & User Management
 
-- 🔐 **Authentication System** (User registration, login, roles)
-- 📊 **Dashboard Overview** with quick navigation cards
-- 👥 **Customer Management** (CRUD)
-- 🏭 **Supplier Management** (CRUD)
-- 📦 **Inventory Management** (CRUD)
-- 🧾 **Order Management** (CRUD)
-- 🎨 **Modern UI** with Bootstrap, custom red/black/grey theme
-- ⚡ **Responsive Design** (mobile-friendly)
-- 🔒 **Secure Forms** (CSRF protection, validation)
-  
+Custom user model
 
----
+JWT authentication (via djangorestframework-simplejwt)
 
-## 📂 Project Structure
-wareq_wms/
-│── accounts/ # Custom user model & auth
-│── customers/ # Customer CRUD
-│── suppliers/ # Supplier CRUD
-│── inventory/ # Inventory CRUD
-│── orders/ # Order CRUD
-│── dashboard/ # Main dashboard
-│── core/ # Home / landing
-│── static/ # CSS, JS, images
-│── templates/ # Global templates
-│── wareq_wms/ # Main project settings & URLs
+Role-based permissions
 
----
+📊 Dashboard
 
-📌 Roadmap (Phases):
-      ✅ Phase 1: Project setup, apps, base templates, dashboard layout
-      ✅ Phase 2: Models, database schema, migrations, URL setup
-      🔜 Phase 3: Full CRUD for all modules (Customers, Suppliers, Inventory, Orders)
-      🔜 Phase 4: Role-based permissions, advanced search, reports, API endpoints
-      🔜 Phase 5: Deploy to cloud (AWS / Heroku / DigitalOcean)
+Overview of sales, purchases, inventory, and suppliers
 
----
+Recent activity logs
 
-🛠️ Tech Stack:
-      -- Backend: Django 5, Python 3.13
-      -- Database: SQLite (default), MySQL planned
-      -- Frontend: HTML5, CSS3, Bootstrap 5
-      -- Version Control: Git & GitHub
+🧾 Orders Management
 
----
+Create, update, and delete orders (sales & purchases)
 
-## ⚙️ Installation & Setup
-### 1️⃣ Clone the repository
-```bash
-git clone https://github.com/Jacob11Q1/WareQ-WMS-Project.git
-cd WareQ-WMS-Project
+Order invoices & reports (PDF export support)
 
----
+📦 Inventory Management
 
-⭐ Contribute
-Want to improve this project? Feel free to fork & submit a PR!
+Track stock items (name, SKU, price, quantity)
 
----
+Supplier–item relationships
 
-👨‍💻 Author:
-      -- Jacob Qumsiyeh
-      -- Email: qumsiyeh37@gmail.com
-      -- Phone: +972597298205
-      -- GitHub: Jacob11Q1
-      -- Instagram: jacob1q11
+Stock movement history
+
+🧑‍🤝‍🧑 Customers & Suppliers
+
+Manage customer profiles
+
+Manage suppliers and their items
+
+🌐 REST API
+
+CRUD endpoints for Customers, Suppliers, Items, and Orders
+
+JWT-secured API
+
+Filtering, search & ordering
+
+API docs with Swagger and ReDoc
+
+🛠️ Tech Stack
+
+Backend: Django 5, Django REST Framework
+
+Database: MySQL (PyMySQL)
+
+Frontend: Django templates + Bootstrap 5 + Crispy Forms
+
+Auth: JWT (SimpleJWT)
+
+Docs: Swagger & ReDoc (drf-spectacular, drf-yasg)
+
+Others: Django Filters, CORS headers, Widget Tweaks
+
+⚙️ Installation
+
+Clone the repo:
+
+git clone https://github.com/Jacob11Q1/Improved-WareQ-Project-WMS.git
+cd Improved-WareQ-Project-WMS/wareq_wms
+
+
+Create & activate a virtual environment:
+
+python -m venv venv
+venv\Scripts\activate   # On Windows
+source venv/bin/activate  # On Linux/Mac
