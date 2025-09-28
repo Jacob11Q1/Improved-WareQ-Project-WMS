@@ -1,0 +1,426 @@
+/* =========================
+   Global Variables & Theme
+========================= */
+:root {
+    --bg-color: #121212;
+    --text-color: #ffffff;
+    --card-bg: #1a1a1a;
+    --accent: #dc3545;
+    --secondary: #2a2a2a;
+}
+
+.light-mode {
+    --bg-color: #f9f9f9;
+    --text-color: #111;
+    --card-bg: #fff;
+    --secondary: #ddd;
+}
+
+/* =========================
+   General
+========================= */
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    transition: background 0.3s ease, color 0.3s ease;
+    font-family: "Poppins", sans-serif;
+    line-height: 1.7;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+main.content-wrapper {
+    flex: 1;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+    font-weight: 700;
+    margin-bottom: 1rem;
+}
+
+/* =========================
+   Navbar
+========================= */
+.navbar {
+    background-color: var(--bg-color) !important;
+    border-bottom: 1px solid var(--secondary);
+}
+
+.navbar-toggler {
+    border: 1px solid var(--accent);
+}
+
+.navbar-toggler-icon {
+    background-image: none !important;
+    width: 1.5rem;
+    height: 1.5rem;
+    position: relative;
+}
+
+.navbar-toggler-icon::before,
+.navbar-toggler-icon::after,
+.navbar-toggler-icon div {
+    content: "";
+    display: block;
+    height: 2px;
+    background: var(--accent);
+    margin: 5px 0;
+    border-radius: 2px;
+}
+
+/* Nav Links */
+.nav-link {
+    color: var(--text-color) !important;
+    transition: color 0.2s ease;
+    position: relative;
+    padding-bottom: 4px;
+}
+
+.nav-link:hover {
+    color: var(--accent) !important;
+}
+
+.nav-link.active,
+.nav-link[aria-current="page"] {
+    color: var(--accent) !important;
+}
+
+.nav-link.active::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 2px;
+    width: 100%;
+    background: var(--accent);
+    border-radius: 2px;
+}
+
+/* =========================
+   Footer
+========================= */
+footer {
+    background-color: var(--bg-color) !important;
+    border-top: 1px solid var(--secondary);
+    margin-top: auto;
+}
+
+footer a {
+    transition: color 0.2s ease, transform 0.2s ease;
+}
+
+footer a:hover {
+    color: var(--accent) !important;
+    transform: translateY(-2px);
+}
+
+/* =========================
+   Cards
+========================= */
+.card {
+    background: var(--card-bg);
+    border-radius: 16px;
+    color: var(--text-color) !important;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+    border: 1px solid var(--secondary);
+    padding: 1rem;
+    margin: 0.5rem;
+}
+
+.card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 12px 25px rgba(220, 53, 69, 0.5);
+}
+
+/* Stat Cards */
+.stat-card {
+    border: 1px solid rgba(220, 53, 69, 0.4);
+    border-radius: 16px;
+    background: linear-gradient(145deg, #1a1a1a, #0d0d0d);
+    transition: all 0.3s ease-in-out;
+    position: relative;
+    overflow: hidden;
+}
+
+.stat-card:hover {
+    transform: translateY(-8px) scale(1.03);
+    box-shadow: 0 0 25px rgba(220, 53, 69, 0.6),
+        0 0 50px rgba(220, 53, 69, 0.3);
+    border-color: #dc3545;
+}
+
+.stat-card::before {
+    content: "";
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(220, 53, 69, 0.15) 0%, transparent 70%);
+    transform: rotate(25deg);
+    animation: shineMove 6s linear infinite;
+}
+
+@keyframes shineMove {
+    0% {
+        transform: rotate(25deg) translate(-30%, -30%);
+    }
+
+    50% {
+        transform: rotate(25deg) translate(30%, 30%);
+    }
+
+    100% {
+        transform: rotate(25deg) translate(-30%, -30%);
+    }
+}
+
+/* =========================
+   Features
+========================= */
+.feature-card .icon {
+    font-size: 2.5rem;
+    margin-bottom: 12px;
+    color: var(--accent);
+}
+
+/* Testimonials */
+.testimonial-card {
+    border-left: 4px solid var(--accent);
+    font-style: italic;
+    background: var(--card-bg);
+    color: var(--text-color);
+    padding: 1.5rem;
+}
+
+/* Pricing */
+.pricing-card {
+    border: 2px solid transparent;
+    transition: border 0.3s ease, transform 0.3s ease;
+}
+
+.pricing-card:hover {
+    border: 2px solid var(--accent);
+    transform: scale(1.03);
+}
+
+/* =========================
+   Hero
+========================= */
+.hero-logo {
+    max-width: 160px;
+    margin-bottom: 20px;
+}
+
+.typing-text {
+    overflow: hidden;
+    white-space: nowrap;
+    border-right: 3px solid var(--accent);
+    width: 0;
+    animation: typing 3s steps(30, end) forwards, blink 0.75s step-end infinite;
+}
+
+@keyframes typing {
+    from {
+        width: 0
+    }
+
+    to {
+        width: 100%
+    }
+}
+
+@keyframes blink {
+    50% {
+        border-color: transparent
+    }
+}
+
+/* =========================
+   Auth Pages
+========================= */
+.auth-wrapper {
+    min-height: 100vh;
+    padding-top: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.auth-card {
+    max-width: 420px;
+    width: 100%;
+    background: var(--card-bg);
+    color: var(--text-color);
+    border-radius: 16px;
+    border: 1px solid var(--secondary);
+    padding: 2rem;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+    text-align: center;
+}
+
+.auth-logo {
+    max-width: 120px;
+    margin-bottom: 15px;
+}
+
+.auth-subtext {
+    color: var(--text-color);
+    opacity: 0.9;
+}
+
+/* =========================
+   Forms & Inputs
+========================= */
+form input,
+form textarea,
+form select {
+    background: var(--secondary);
+    color: var(--text-color) !important;
+    border-radius: 8px;
+    border: none;
+    padding: 10px;
+    width: 100%;
+}
+
+form input::placeholder,
+form textarea::placeholder {
+    color: var(--text-color);
+    opacity: 0.7;
+}
+
+form input:focus,
+form textarea:focus,
+form select:focus {
+    border: 2px solid var(--accent);
+    background: var(--card-bg);
+    color: var(--text-color) !important;
+    box-shadow: 0 0 6px rgba(220, 53, 69, 0.5);
+    outline: none;
+}
+
+/* =========================
+   Buttons
+========================= */
+.btn-danger {
+    border-radius: 8px;
+    transition: all 0.3s ease;
+}
+
+.btn-danger:hover {
+    box-shadow: 0 0 12px rgba(220, 53, 69, 0.7);
+}
+
+.btn-outline-light:hover {
+    background: var(--accent);
+    color: #fff !important;
+    box-shadow: 0 0 10px rgba(220, 53, 69, 0.6);
+    border-color: var(--accent);
+}
+
+.btn-outline-danger:hover {
+    background: var(--accent);
+    color: #fff !important;
+    box-shadow: 0 0 12px rgba(220, 53, 69, 0.7);
+}
+
+/* =========================
+   Tables
+========================= */
+.table-dark th,
+.table-dark td {
+    vertical-align: middle;
+}
+
+.table-hover tbody tr:hover {
+    background-color: rgba(220, 53, 69, 0.1) !important;
+}
+
+/* =========================
+   Dashboard Lists
+========================= */
+.list-group-item {
+    background: var(--card-bg) !important;
+    border: none;
+    border-bottom: 1px solid var(--secondary);
+}
+
+.list-group-item:hover {
+    background: rgba(220, 53, 69, 0.1) !important;
+    cursor: pointer;
+}
+
+/* =========================
+   Carousel
+========================= */
+.carousel-img {
+    width: 100%;
+    height: 450px;
+    /* consistent height */
+    object-fit: cover;
+    /* crop properly */
+    border-radius: 12px;
+}
+
+@media (max-width: 768px) {
+    .carousel-img {
+        height: 280px;
+    }
+}
+
+@media (max-width: 576px) {
+    .carousel-img {
+        height: 200px;
+    }
+}
+
+/* =========================
+   Responsive
+========================= */
+@media (max-width: 992px) {
+    .navbar-nav {
+        text-align: center;
+    }
+
+    .dropdown-menu {
+        text-align: center;
+    }
+}
+
+@media (max-width: 768px) {
+    .card {
+        margin: 1rem 0;
+    }
+
+    .auth-card {
+        padding: 1.5rem;
+    }
+
+    .table-responsive {
+        font-size: 0.9rem;
+    }
+
+    .stat-card h2 {
+        font-size: 1.6rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .hero-logo {
+        max-width: 120px;
+    }
+
+    .typing-text {
+        font-size: 1rem;
+    }
+
+    .stat-card h2 {
+        font-size: 1.3rem;
+    }
+}

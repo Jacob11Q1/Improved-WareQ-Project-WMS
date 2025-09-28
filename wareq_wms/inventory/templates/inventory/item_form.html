@@ -1,0 +1,131 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="container py-5 d-flex justify-content-center">
+    <div class="card shadow-lg bg-dark text-light w-100" style="max-width: 600px;">
+        <div class="card-body">
+
+            <!-- Title -->
+            <h2 class="text-danger fw-bold mb-4 text-center">
+                {% if form.instance.pk %}
+                <i class="bi bi-pencil-square"></i> Edit Item
+                {% else %}
+                <i class="bi bi-plus-circle"></i> Add Item
+                {% endif %}
+            </h2>
+
+            <!-- Form -->
+            <form method="post" id="itemForm">
+                {% csrf_token %}
+
+                <!-- SKU -->
+                <div class="mb-3">
+                    <label for="id_sku" class="form-label">
+                        <i class="bi bi-upc"></i> SKU
+                    </label>
+                    <div class="input-group">
+                        <span class="input-group-text bg-danger text-light"><i class="bi bi-upc"></i></span>
+                        {{ form.sku }}
+                    </div>
+                    <div id="skuFeedback" class="small mt-1"></div>
+                    {% if form.sku.errors %}
+                    <div class="text-danger small">{{ form.sku.errors|join:", " }}</div>
+                    {% endif %}
+                </div>
+
+                <!-- Name -->
+                <div class="mb-3">
+                    <label for="id_name" class="form-label"><i class="bi bi-box"></i> Name</label>
+                    <div class="input-group">
+                        <span class="input-group-text bg-danger text-light"><i class="bi bi-box"></i></span>
+                        {{ form.name }}
+                    </div>
+                    {% if form.name.errors %}
+                    <div class="text-danger small">{{ form.name.errors|join:", " }}</div>
+                    {% endif %}
+                </div>
+
+                <!-- Description -->
+                <div class="mb-3">
+                    <label for="id_description" class="form-label"><i class="bi bi-card-text"></i> Description</label>
+                    {{ form.description }}
+                </div>
+
+                <!-- Quantity -->
+                <div class="mb-3">
+                    <label for="id_quantity" class="form-label"><i class="bi bi-123"></i> Quantity</label>
+                    <div class="input-group">
+                        <span class="input-group-text bg-danger text-light"><i class="bi bi-123"></i></span>
+                        {{ form.quantity }}
+                    </div>
+                    {% if form.quantity.errors %}
+                    <div class="text-danger small">{{ form.quantity.errors|join:", " }}</div>
+                    {% endif %}
+                </div>
+
+                <!-- Price -->
+                <div class="mb-3">
+                    <label for="id_price" class="form-label"><i class="bi bi-cash-stack"></i> Price</label>
+                    <div class="input-group">
+                        <span class="input-group-text bg-danger text-light"><i class="bi bi-cash-stack"></i></span>
+                        {{ form.price }}
+                    </div>
+                    {% if form.price.errors %}
+                    <div class="text-danger small">{{ form.price.errors|join:", " }}</div>
+                    {% endif %}
+                </div>
+
+                <!-- Supplier -->
+                <div class="mb-3">
+                    <label for="id_supplier" class="form-label"><i class="bi bi-truck"></i> Supplier</label>
+                    {{ form.supplier }}
+                </div>
+
+                <!-- Submit -->
+                <div class="d-grid mt-4">
+                    <button type="submit" class="btn btn-danger">
+                        <i class="bi bi-save"></i> Save Item
+                    </button>
+                </div>
+            </form>
+
+            <!-- Back -->
+            <div class="text-center mt-3">
+                <a href="{% url 'inventory:item_list' %}" class="btn btn-outline-light">
+                    <i class="bi bi-arrow-left-circle"></i> Back to Inventory
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Live SKU Validation -->
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+        const skuInput = document.getElementById("id_sku");
+        const feedback = document.getElementById("skuFeedback");
+
+        if (skuInput) {
+            skuInput.addEventListener("input", () => {
+                const sku = skuInput.value;
+                if (sku.length > 2) {
+                    fetch(`/inventory/validate-sku/?sku=${sku}`)
+                        .then(res => res.json())
+                        .then(data => {
+                            if (data.exists) {
+                                feedback.textContent = "This SKU already exists.";
+                                feedback.classList.add("text-danger");
+                                feedback.classList.remove("text-success");
+                            } else {
+                                feedback.textContent = "SKU available.";
+                                feedback.classList.add("text-success");
+                                feedback.classList.remove("text-danger");
+                            }
+                        });
+                } else {
+                    feedback.textContent = "";
+                }
+            });
+        }
+    });
+</script>
+{% endblock %}
