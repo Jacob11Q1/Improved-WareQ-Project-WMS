@@ -2,65 +2,43 @@
 
 A professional warehouse management system (WMS) built with Django and MySQL, designed to handle inventory, suppliers, customers, and orders in a simple yet powerful way.
 
-🚀 Features
+🚀 Features:
 
-🔐 Authentication & User Management
+🔐 Authentication & User Management:
+   -- Custom user model
+   -- JWT authentication (via djangorestframework-simplejwt)
+   --  Role-based permissions
 
-Custom user model
+📊 Dashboard:
+  --  Overview of sales, purchases, inventory, and suppliers
+  -- Recent activity logs
 
-JWT authentication (via djangorestframework-simplejwt)
+🧾 Orders Management:
+ -- Create, update, and delete orders (sales & purchases)
+ -- Order invoices & reports (PDF export support)
 
-Role-based permissions
+📦 Inventory Management:
+ -- Track stock items (name, SKU, price, quantity)
+ -- Supplier–item relationships
+ -- Stock movement history
 
-📊 Dashboard
+🧑‍🤝‍🧑 Customers & Suppliers:
+ -- Manage customer profiles
+ -- Manage suppliers and their items
 
-Overview of sales, purchases, inventory, and suppliers
+🌐 REST API:
+ -- CRUD endpoints for Customers, Suppliers, Items, and Orders
+ -- JWT-secured API
+ -- Filtering, search & ordering
+ -- API docs with Swagger and ReDoc
 
-Recent activity logs
-
-🧾 Orders Management
-
-Create, update, and delete orders (sales & purchases)
-
-Order invoices & reports (PDF export support)
-
-📦 Inventory Management
-
-Track stock items (name, SKU, price, quantity)
-
-Supplier–item relationships
-
-Stock movement history
-
-🧑‍🤝‍🧑 Customers & Suppliers
-
-Manage customer profiles
-
-Manage suppliers and their items
-
-🌐 REST API
-
-CRUD endpoints for Customers, Suppliers, Items, and Orders
-
-JWT-secured API
-
-Filtering, search & ordering
-
-API docs with Swagger and ReDoc
-
-🛠️ Tech Stack
-
-Backend: Django 5, Django REST Framework
-
-Database: MySQL (PyMySQL)
-
-Frontend: Django templates + Bootstrap 5 + Crispy Forms
-
-Auth: JWT (SimpleJWT)
-
-Docs: Swagger & ReDoc (drf-spectacular, drf-yasg)
-
-Others: Django Filters, CORS headers, Widget Tweaks
+🛠️ Tech Stack:
+ -- Backend: Django 5, Django REST Framework
+ -- Database: MySQL (PyMySQL)
+ -- Frontend: Django templates + Bootstrap 5 + Crispy Forms
+ -- Auth: JWT (SimpleJWT)
+ -- Docs: Swagger & ReDoc (drf-spectacular, drf-yasg)
+ -- Others: Django Filters, CORS headers, Widget Tweaks
 
 ⚙️ Installation
 
