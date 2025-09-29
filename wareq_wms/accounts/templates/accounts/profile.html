@@ -4,8 +4,14 @@
 {% block content %}
 <div class="container py-5 d-flex justify-content-center">
     <div class="card p-4 shadow-lg bg-dark text-light text-center" style="max-width: 600px;">
-        <h2 class="fw-bold text-danger"><i class="bi bi-person-circle"></i> {{ user.username }}</h2>
+        <!-- Username -->
+        <h2 class="fw-bold text-danger">
+            <i class="bi bi-person-circle"></i> {{ user.username }}
+        </h2>
+
+        <!-- Role Badge -->
         <p>
+            {% if user.role %}
             {% with user.role|role_badge as rb %}
             {% with rb|split as parts %}
             <span class="badge {{ parts.0 }}">
@@ -13,12 +19,29 @@
             </span>
             {% endwith %}
             {% endwith %}
+            {% else %}
+            <span class="badge bg-secondary">
+                <i class="bi bi-question-circle"></i> No Role
+            </span>
+            {% endif %}
         </p>
-        <hr>
-        <p><i class="bi bi-envelope"></i> {{ user.email }}</p>
-        <p><i class="bi bi-calendar"></i> Member since: {{ user.date_joined|date:"F j, Y" }}</p>
-        <p><i class="bi bi-clock-history"></i> Last login: {{ user.last_login|date:"M d, Y H:i" }}</p>
 
+        <hr>
+
+        <!-- User Details -->
+        <p><i class="bi bi-envelope"></i> {{ user.email }}</p>
+        <p><i class="bi bi-calendar"></i> Member since: {{ user.date_joined|date:"M d, Y" }}</p>
+        <p>
+            <i class="bi bi-clock-history"></i>
+            Last login:
+            {% if user.last_login %}
+            {{ user.last_login|timesince }} ago
+            {% else %}
+            Never
+            {% endif %}
+        </p>
+
+        <!-- Action Buttons -->
         <div class="mt-3 d-flex justify-content-center gap-2">
             <a href="{% url 'core:dashboard' %}" class="btn btn-outline-light">
                 <i class="bi bi-speedometer2"></i> Dashboard
