@@ -1,55 +1,92 @@
-📦 WareQ WMS – Warehouse Management System
+# 📦 WareQ – Warehouse Management System (WMS)
 
-A professional warehouse management system (WMS) built with Django and MySQL, designed to handle inventory, suppliers, customers, and orders in a simple yet powerful way.
+![Python](https://img.shields.io/badge/Python-3.12-blue)
+![Django](https://img.shields.io/badge/Django-5.0-green)
+![MySQL](https://img.shields.io/badge/Database-MySQL-orange)
+![Bootstrap](https://img.shields.io/badge/UI-Bootstrap-purple)
+![Status](https://img.shields.io/badge/Status-In_Development-yellow)
 
-🚀 Features:
+> **WareQ-WMS** is a full-stack Warehouse Management System built with Django to simplify and streamline warehouse operations.  
+> It provides real-time inventory tracking, efficient order handling, and insightful reporting for businesses of any size.
 
-🔐 Authentication & User Management:
-   -- Custom user model
-   -- JWT authentication (via djangorestframework-simplejwt)
-   --  Role-based permissions
+---
 
-📊 Dashboard:
-  --  Overview of sales, purchases, inventory, and suppliers
-  -- Recent activity logs
+## ✨ Features
 
-🧾 Orders Management:
- -- Create, update, and delete orders (sales & purchases)
- -- Order invoices & reports (PDF export support)
+- 👤 **Customer Management** – Add, edit, track customers  
+- 🏭 **Supplier Management** – Manage supplier data  
+- 📦 **Inventory Control** – Track stock, availability & movements  
+- 📝 **Orders (Sales & Purchases)** – Create, update & monitor orders  
+- 📊 **Dashboard & Reports** – Visualize sales, purchases, and KPIs  
 
-📦 Inventory Management:
- -- Track stock items (name, SKU, price, quantity)
- -- Supplier–item relationships
- -- Stock movement history
+---
 
-🧑‍🤝‍🧑 Customers & Suppliers:
- -- Manage customer profiles
- -- Manage suppliers and their items
+## 🛠 Tech Stack
 
-🌐 REST API:
- -- CRUD endpoints for Customers, Suppliers, Items, and Orders
- -- JWT-secured API
- -- Filtering, search & ordering
- -- API docs with Swagger and ReDoc
+- **Backend:** Django (Python)  
+- **Frontend:** HTML, CSS, Bootstrap  
+- **Database:** MySQL  
+- **Hosting (planned):** AWS EC2 / RDS  
+- **Version Control:** Git & GitHub  
 
-🛠️ Tech Stack:
- -- Backend: Django 5, Django REST Framework
- -- Database: MySQL (PyMySQL)
- -- Frontend: Django templates + Bootstrap 5 + Crispy Forms
- -- Auth: JWT (SimpleJWT)
- -- Docs: Swagger & ReDoc (drf-spectacular, drf-yasg)
- -- Others: Django Filters, CORS headers, Widget Tweaks
+---
 
-⚙️ Installation
+## 📌 Roadmap (Phases)
 
-Clone the repo:
+- ✅ Phase 1: Authentication  
+- ✅ Phase 2: Core Apps (Customers, Suppliers, Inventory, Orders)  
+- ✅ Phase 3: CRUD Operations  
+- ✅ Phase 4: Dashboard & Reporting  
+- ✅ Phase 5: REST API Development  
+- ✅ Phase 6: Testing & Validation  
+- 🔜 Phase 7: Deployment (AWS/Docker)  
 
+## 🏗 System Architecture
+
+```text
+ Users → Authentication (Django) → Core Apps (Accounts, Inventory, Orders, etc.) → Database (MySQL)
+
+
+🚀 Quick Start
+
+Clone and run locally:
+
+# Clone repository
 git clone https://github.com/Jacob11Q1/Improved-WareQ-Project-WMS.git
-cd Improved-WareQ-Project-WMS/wareq_wms
+cd Improved-WareQ-Project-WMS
 
-
-Create & activate a virtual environment:
-
+# Create virtual environment
 python -m venv venv
-venv\Scripts\activate   # On Windows
-source venv/bin/activate  # On Linux/Mac
+source venv/bin/activate   # (Linux/Mac)
+venv\Scripts\activate      # (Windows)
+
+# Install dependencies
+pip install -r requirements.txt
+
+# Run migrations
+python manage.py migrate
+
+# Start server
+python manage.py runserver
+
+
+📈 Future Enhancements
+
+Role-based permissions (Admin, Manager, Staff)
+
+API integrations with ERP systems
+
+Barcode/QR code support
+
+Advanced analytics & forecasting
+
+Mobile app support
+
+🤝 Contributing
+
+Contributions are welcome!
+Fork the repo → Create a branch → Submit PR.
+
+📜 License
+
+MIT License © 2025 Jacob Qumseya
